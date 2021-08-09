@@ -1,22 +1,22 @@
 const indexfile = [
    {
-       "name": "Test",
-       "description": "<p>HTML world description</p>",
-       "links": {
-           "module": "https://github.com/user/repo/blob/main/module.json",
-           "world": "https://github.com/user/repo/blob/main/world.json",
-           "download": "https://github.com/user/repo/blob/main/package.zip"
-       },
-       "author": "World Smiths",
-       "authors": [
-           {
-               "name": "Test"
-           }
-       ],
-       "version": "0.3.0",
-       "system": "dnd5e",
-       "dependencies": [],
-       "size": 0
+      "name": "Test",
+      "description": "<p>HTML world description</p>",
+      "links": {
+         "module": "https://github.com/user/repo/blob/main/module.json",
+         "world": "https://github.com/user/repo/blob/main/world.json",
+         "download": "https://github.com/user/repo/blob/main/package.zip"
+      },
+      "author": "World Smiths",
+      "authors": [
+         {
+            "name": "Test"
+         }
+      ],
+      "version": "0.3.0",
+      "system": "dnd5e",
+      "dependencies": [],
+      "size": 0
    }
 ]; // put index.json here to work offline
 
@@ -93,7 +93,7 @@ async function load() {
                   <header id="WStitle-group">
                      <strong id="WStitle" class="name"></strong>
                      <div id="WSinstall">
-                        <button id="WSinstall-dropdown" class="fa fa-download"></button>
+                        <button id="WSinstall-dropdown" class="fa fa-download" title="Download World"></button>
                         <nav id="WSinstall-buttons">
                            <button id="WSinstall-module" class="module">Module</button>
                            <button id="WSinstall-world" class="world">World</button>

@@ -1,30 +1,30 @@
 <!DOCTYPE html>
 <html lang="en-US" class="light">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js" defer></script>
 <script src="./main.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" defer>
 <link rel="stylesheet" type="text/css" href="./main.css">
 
 <head>
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta charset="utf-8">
-   <meta name="robots" content="noindex">
+   <meta name="description" content="Webpage that displays the finished World Smiths worlds and allows for searching and sorting.">
    <title>World Smiths</title>
    <link rel="icon" href="logo.svg" alt="">
 </head>
 
 <body id="WSapp" onload="load()">
-   <object data="logo.svg" id="WSlogo"></object>
+   <object data="logo.svg" id="WSlogo" alt="World Smiths Logo"></object>
    <h1 id="WSheading">World&nbsp;Smiths</h1>
 
    <main id="WSworld-list">
       <section id="WSsupport">If you have any questions, issues, or would like to help the project, please come by
          our
-         <a href="https://discord.gg/2YCFD8fxG7" target="_blank"> discord server.</a></p>
+         <a href="https://discord.gg/2YCFD8fxG7" rel="noreferrer" target="_blank"> discord server.</a></p>
       </section>
       <nav id="WSnavbar">
          <input id="WSsearchbox" type="search" placeholder="Search" class="fuzzy-search" />
-         <button id="WScolor-toggle"></button>
+         <button id="WScolor-toggle" title="Toggle Theme"></button>
       </nav>
 
       <nav id="WSsortbar">
@@ -38,7 +38,8 @@
 
    <button onclick="topFunction()" id="WSgotoTop" title="Go to top">Top</button>
 
-   <iframe id="WSdiscord" width="max-content" height="300" allowtransparency="true" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+   <iframe id="WSdiscord" title="Discord Server" width="max-content" height="300" allowtransparency="true"
+      sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 </body>
 
 </html>

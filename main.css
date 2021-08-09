@@ -2,7 +2,7 @@ html.light {
   --background: 0, 0%, 100%;
   --dark: 245, 95%, 70%;
   --text: 175, 55%, 10%;
-  --light: 150, 75%, 75%;
+  --light: 150, 75%, 80%;
 }
 
 html.dark {
@@ -111,7 +111,10 @@ button,
   content: " \f0dd";
 }
 
-#WSresults, #WSsupport, #WSsidebar, #WSdiscord {
+#WSresults,
+#WSsupport,
+#WSsidebar,
+#WSdiscord {
   border-style: solid;
 }
 
@@ -186,7 +189,8 @@ button,
   background-color: hsl(var(--light));
 }
 
-#WSinstall:hover #WSinstall-buttons {
+#WSinstall:hover #WSinstall-buttons,
+#WSinstall:focus #WSinstall-buttons {
   display: flex;
   flex-direction: column;
   transform: translateX(-60%);
