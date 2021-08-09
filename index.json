@@ -1,0 +1,21 @@
+[
+    {
+        "name": "Test",
+        "description": "<p>HTML world description</p>",
+        "links": {
+            "module": "https://github.com/user/repo/blob/main/module.json",
+            "world": "https://github.com/user/repo/blob/main/world.json",
+            "download": "https://github.com/user/repo/blob/main/package.zip"
+        },
+        "author": "World Smiths",
+        "authors": [
+            {
+                "name": "Test"
+            }
+        ],
+        "version": "0.3.0",
+        "system": "dnd5e",
+        "dependencies": [],
+        "size": 0
+    }
+]

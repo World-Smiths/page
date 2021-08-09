@@ -1,0 +1,268 @@
+html.light {
+  --background: 0, 0%, 100%;
+  --dark: 245, 95%, 70%;
+  --text: 175, 55%, 10%;
+  --light: 150, 75%, 75%;
+}
+
+html.dark {
+  --background: 0, 0%, 10%;
+  --dark: 245, 95%, 80%;
+  --text: 175, 55%, 80%;
+  --light: 150, 75%, 10%;
+}
+
+* {
+  border-radius: 10px;
+  font-family: roboto, calibri, "FontAwesome";
+  color: hsl(var(--dark));
+  scroll-behavior: smooth;
+  border-width: 5px;
+  margin: 0;
+}
+
+::placeholder {
+  color: hsl(var(--text));
+}
+
+#WSapp {
+  background-color: hsl(var(--background));
+  margin: 1%;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  overflow-x: hidden;
+}
+
+#WSlogo {
+  width: 10%;
+  position: absolute;
+}
+
+#WSheading {
+  font-family: serif;
+  font-size: 8vw;
+  color: hsl(var(--dark));
+  margin: 1%;
+  text-align: center;
+}
+
+#WSworld-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+#WSsearchbox,
+button,
+#WSinstall-buttons {
+  background-color: hsl(var(--background));
+  padding: 1%;
+  font-size: inherit;
+  border-color: hsl(var(--dark));
+  color: hsl(var(--text));
+}
+
+#WSsearchbox {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#WSsortbar,
+#WSnavbar {
+  display: flex;
+  gap: 1%;
+}
+
+#WSgotoTop,
+#WScolor-toggle {
+  cursor: pointer;
+  background-color: hsl(var(--background));
+  border-width: 5px;
+}
+
+#WSsortbar {
+  flex-wrap: wrap;
+}
+
+#WSsortbar > .sort {
+  cursor: pointer;
+  margin: 0 0 1% 0;
+}
+
+#WSsortbar > .sort:hover {
+  background-color: hsl(var(--light));
+}
+
+#WSsortbar > .sort.asc,
+.sort.desc {
+  background-color: hsl(var(--background));
+}
+
+#WSsortbar > .sort:after {
+  content: " \f0dc";
+}
+
+#WSsortbar > .sort.asc:after {
+  content: " \f0de";
+}
+
+#WSsortbar > .sort.desc:after {
+  content: " \f0dd";
+}
+
+#WSresults, #WSsupport, #WSsidebar, #WSdiscord {
+  border-style: solid;
+}
+
+#WSsupport {
+  background-color: hsl(var(--light), 50%);
+  border-color: hsl(var(--dark));
+  padding: 1%;
+  text-align: center;
+}
+
+#WSresults {
+  border-color: hsl(var(--dark));
+  padding: 0 2%;
+  margin: 0;
+}
+
+#WSresults > details {
+  margin: 2% 0;
+}
+
+#WStoggle {
+  border-style: solid;
+  padding: 1%;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+#WStoggle:hover {
+  background-color: hsl(var(--light));
+}
+
+#WStitle-group {
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 2%;
+  width: calc(100% - 1.5em);
+}
+
+#WStitle {
+  flex: 1;
+  margin: auto;
+}
+
+#WSinstall {
+  float: left;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+#WSinstall-dropdown {
+  color: hsl(var(--dark));
+  background-color: transparent;
+  border-style: none;
+}
+
+#WSinstall-buttons {
+  display: none;
+  position: absolute;
+  border-style: solid;
+}
+
+#WSinstall-buttons button {
+  padding: 5%;
+  text-align: center;
+  font-size: 0.5em;
+  border: none;
+  display: none;
+}
+
+#WSinstall-buttons button:hover {
+  background-color: hsl(var(--light));
+}
+
+#WSinstall:hover #WSinstall-buttons {
+  display: flex;
+  flex-direction: column;
+  transform: translateX(-60%);
+  width: 4em;
+}
+
+#WSinstall-world,
+#WSinstall-module {
+  cursor: copy;
+}
+
+#WSinstall-zip {
+  cursor: pointer;
+}
+
+#WSdetails {
+  display: flex;
+  padding: 2% 0 0 0;
+  gap: 1em;
+}
+
+#WSdescription {
+  flex: 3;
+  padding-left: 0.5%;
+}
+
+#WSdescription > * {
+  font-family: sans-serif;
+  line-height: 1.5;
+  color: hsl(var(--text));
+}
+
+#WSsidebar {
+  background-color: hsl(var(--light), 50%);
+  border-color: hsl(var(--dark));
+  flex: 1;
+  height: min-content;
+  padding: 1%;
+}
+
+#WSdiscord {
+  border-color: hsl(var(--dark));
+}
+
+#WSgotoTop {
+  display: none;
+  right: 1%;
+  position: fixed;
+  bottom: 2%;
+  z-index: 99;
+}
+
+#WSgotoTop:hover,
+#WScolor-toggle:hover {
+  background-color: hsl(var(--light));
+}
+
+@media (max-width: 1000px) {
+  #WSheading {
+    font-size: 8vw;
+    text-align: center;
+  }
+
+  #WSresults {
+    border-style: none;
+    margin: -2% 0;
+    padding: 0;
+  }
+
+  #WSdetails {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (min-width: 2000px) {
+  #WSworld-list {
+    margin: 0 20%;
+  }
+}

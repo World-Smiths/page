@@ -1,0 +1,325 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/World-Smiths/page/main/index.json",
+  "title": "World Schema",
+  "description": "World Smiths metadata document schema for a unique world",
+  "type": "array",
+  "definitions": {
+    "links": {
+      "type": "object",
+      "required": [
+        "download"
+      ],
+      "properties": {
+        "module": {
+          "$id": "#/definitions/links/properties/module",
+          "title": "Module Manifest",
+          "description": "Manifest URL for the module version",
+          "type": "string",
+          "format": "uri",
+          "examples": [
+            "https://github.com/user/repo/blob/main/module.json"
+          ]
+        },
+        "world": {
+          "$id": "#/definitions/links/properties/world",
+          "title": "World Manifest",
+          "description": "Manifest URL for the world version",
+          "type": "string",
+          "format": "uri",
+          "examples": [
+            "https://github.com/user/repo/blob/main/world.json"
+          ]
+        },
+        "download": {
+          "$id": "#/definitions/links/properties/download",
+          "title": "Download link",
+          "description": "Download link for the package ZIP",
+          "type": "string",
+          "format": "uri",
+          "examples": [
+            "https://github.com/user/repo/blob/main/package.zip"
+          ]
+        }
+      }
+    },
+    "versionInfo": {
+      "type": "string",
+      "pattern": "^(?:\\d+\\.?){3}$"
+    },
+    "authors": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "$id": "#/definitions/authors/properties/name",
+          "title": "Author Name",
+          "description": "The name of the author",
+          "type": "string",
+          "examples": [
+            "Author #1"
+          ]
+        },
+        "url": {
+          "$id": "#/definitions/authors/properties/url",
+          "title": "Author URL",
+          "description": "URL for the author's website",
+          "type": "string",
+          "format": "uri",
+          "examples": [
+            "https://www.theirwebsite.com/store"
+          ]
+        },
+        "email": {
+          "$id": "#/definitions/authors/properties/email",
+          "title": "Author Email",
+          "description": "The author's email address",
+          "type": "string",
+          "format": "email",
+          "examples": [
+            "email@example.com"
+          ]
+        },
+        "discord": {
+          "$id": "#/definitions/authors/properties/discord",
+          "title": "Author DiscordID",
+          "description": "The author's Discord ID",
+          "type": "string",
+          "pattern": "^.{3,32}#[0-9]{4}$",
+          "examples": [
+            "discordID#0001"
+          ]
+        },
+        "ko-fi": {
+          "$id": "#/definitions/authors/properties/ko-fi",
+          "title": "Author ko-fi",
+          "description": "The individual author's ko-fi name",
+          "type": "string",
+          "examples": [
+            "kofiName"
+          ]
+        },
+        "patreon": {
+          "$id": "#/definitions/authors/properties/patreon",
+          "title": "Author Patreon",
+          "description": "The individual author's Patreon name",
+          "type": "string",
+          "examples": [
+            "patreonName"
+          ]
+        },
+        "reddit": {
+          "$id": "#/definitions/authors/properties/reddit",
+          "title": "Author Reddit",
+          "description": "The individual author's Reddit username",
+          "type": "string",
+          "pattern": "/u/(\\w+)",
+          "examples": [
+            "u/RedditUsername"
+          ]
+        },
+        "twitter": {
+          "$id": "#/definitions/authors/properties/twitter",
+          "title": "Author Twitter",
+          "description": "An explanation about the purpose of this instance",
+          "type": "string",
+          "pattern": "^@[A-Za-z0-9_]{1,15}$",
+          "examples": [
+            "@TwitterHandle"
+          ]
+        }
+      }
+    },
+    "dependency": {
+      "type": "object",
+      "required": [
+        "name",
+        "manifest"
+      ],
+      "additionalProperties": false,
+      "description": "Any module, system, or world dependencies required by this world",
+      "properties": {
+        "name": {
+          "title": "Name",
+          "description": "The name of the dependency",
+          "type": "string",
+          "examples": [
+            "dnd5e"
+          ]
+        },
+        "type": {
+          "title": "Type",
+          "description": "The type of dependency",
+          "type": "string",
+          "enum": [
+            "module",
+            "system",
+            "world"
+          ]
+        },
+        "manifest": {
+          "title": "Manifest URL",
+          "description": "The URL manifest for the dependency",
+          "type": "string",
+          "format": "uri",
+          "examples": [
+            "https://gitlab.com/foundrynet/dnd5e/raw/release-1.3.3/system.json"
+          ]
+        }
+      },
+      "examples": [
+        {
+          "name": "dnd5e",
+          "type": "system",
+          "manifest": "https://gitlab.com/foundrynet/dnd5e/raw/release-1.3.3/system.json"
+        }
+      ]
+    }
+  },
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "name": {
+        "$id": "#/properties/name",
+        "title": "World Title",
+        "description": "The full name of the world",
+        "type": "string",
+        "examples": [
+          "Official World Title"
+        ]
+      },
+      "description": {
+        "$id": "#/properties/description",
+        "title": "Description",
+        "description": "An HTML description for the world",
+        "type": "string",
+        "examples": [
+          "<p>HTML world description</p>"
+        ]
+      },
+      "links": {
+        "$id": "#/properties/links",
+        "title": "Manifest URL",
+        "description": "The URLs users for the manifest and download links",
+        "type": "object",
+        "$ref": "#/definitions/links"
+      },
+      "version": {
+        "$id": "#/properties/version",
+        "title": "Version",
+        "description": "The package version",
+        "$ref": "#/definitions/versionInfo",
+        "examples": [
+          "0.3.0"
+        ]
+      },
+      "author": {
+        "$id": "#/properties/author",
+        "title": "Author",
+        "description": "The main author of the world",
+        "type": "string",
+        "examples": [
+          "World Smiths"
+        ]
+      },
+      "authors": {
+        "$id": "#/properties/authors",
+        "title": "Authors",
+        "description": "The full details of the authors of the world",
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/authors"
+        }
+      },
+      "system": {
+        "$id": "#/properties/system",
+        "title": "System",
+        "description": "The system this world is intended to be used with",
+        "type": "string",
+        "examples": [
+          "dnd5e"
+        ]
+      },
+      "dependencies": {
+        "$id": "#/properties/dependencies",
+        "title": "Dependencies",
+        "description": "A list of any module, system, or world dependencies required by this world",
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/dependency"
+        }
+      },
+      "size": {
+        "$id": "#/properties/size",
+        "title": "Size",
+        "description": "The size of the uncompressed world in KB",
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "required": [
+      "name",
+      "links",
+      "version",
+      "author",
+      "authors",
+      "system",
+      "dependencies",
+      "size"
+    ],
+    "examples": [
+      {
+        "name": "Official World Title",
+        "description": "<p>HTML world description</p>",
+        "links": {
+          "world": "https://github.com/user/repo/blob/main/world.json",
+          "module": "https://github.com/user/repo/blob/main/module.json",
+          "download": "https://github.com/user/repo/blob/main/package.zip"
+        },
+        "version": "0.1.0",
+        "system": "dnd5e",
+        "dependencies": [
+          {
+            "name": "dnd5e",
+            "type": "system",
+            "manifest": "https://gitlab.com/foundrynet/dnd5e/raw/release-1.3.3/system.json"
+          }
+        ],
+        "size": 123456789
+      }
+    ]
+  },
+  "minItems": 1,
+  "examples": [
+    [
+      {
+        "name": "Official World Title",
+        "description": "<p>HTML world description</p>",
+        "links": {
+          "world": "https://github.com/user/repo/blob/main/world.json",
+          "module": "https://github.com/user/repo/blob/main/module.json",
+          "download": "https://github.com/user/repo/blob/main/package.zip"
+        },
+        "version": "0.1.0",
+        "author": "World Smiths",
+        "authors": [
+          {
+            "name": "World Smiths"
+          }
+        ],
+        "system": "dnd5e",
+        "dependencies": [
+          {
+            "name": "dnd5e",
+            "type": "system",
+            "manifest": "https://gitlab.com/foundrynet/dnd5e/raw/release-1.3.3/system.json"
+          }
+        ],
+        "size": 123456789
+      }
+    ]
+  ]
+}
