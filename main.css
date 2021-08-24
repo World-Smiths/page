@@ -71,7 +71,7 @@ button,
 #WSsortbar,
 #WSnavbar {
   display: flex;
-  gap: 1%;
+  gap: 2vw;
 }
 
 #WSgotoTop,
@@ -87,7 +87,6 @@ button,
 
 #WSsortbar > .sort {
   cursor: pointer;
-  margin: 0 0 1% 0;
 }
 
 #WSsortbar > .sort:hover {
