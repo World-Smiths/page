@@ -47,13 +47,19 @@ html.dark {
   text-align: center;
 }
 
+#WSabout {
+  color: hsl(var(--text));
+  font-style: italic;
+  text-align: center;
+}
+
 #WSworld-list {
   display: flex;
   flex-direction: column;
   gap: 2vh;
 }
 
-#WSsearchbox,
+#WSsearchBox,
 button,
 #WSinstall-buttons {
   background-color: hsl(var(--background));
@@ -63,12 +69,12 @@ button,
   color: hsl(var(--text));
 }
 
-#WSsearchbox {
+#WSsearchBox {
   box-sizing: border-box;
   width: 100%;
 }
 
-#WSsortbar,
+#WSsortBar,
 #WSnavbar {
   display: flex;
   gap: 2vw;
@@ -81,32 +87,32 @@ button,
   border-width: 5px;
 }
 
-#WSsortbar {
+#WSsortBar {
   flex-wrap: wrap;
 }
 
-#WSsortbar > .sort {
+#WSsortBar > .sort {
   cursor: pointer;
 }
 
-#WSsortbar > .sort:hover {
+#WSsortBar > .sort:hover {
   background-color: hsl(var(--light));
 }
 
-#WSsortbar > .sort.asc,
+#WSsortBar > .sort.asc,
 .sort.desc {
   background-color: hsl(var(--background));
 }
 
-#WSsortbar > .sort:after {
+#WSsortBar > .sort:after {
   content: " \f0dc";
 }
 
-#WSsortbar > .sort.asc:after {
+#WSsortBar > .sort.asc:after {
   content: " \f0de";
 }
 
-#WSsortbar > .sort.desc:after {
+#WSsortBar > .sort.desc:after {
   content: " \f0dd";
 }
 
@@ -122,7 +128,6 @@ button,
   border-color: hsl(var(--dark));
   padding: 1%;
   text-align: center;
-  font-size: 18px;
 }
 
 #WSresults {
@@ -217,10 +222,16 @@ button,
   padding-left: 0.5%;
 }
 
-#WSdescription > * {
+#WSdescription * {
   font-family: sans-serif;
   line-height: 1.5;
   color: hsl(var(--text));
+}
+
+#WSdescription hr {
+  border-width: 1px;
+  border-color: hsl(var(--dark));
+  margin: 0.5em  0;
 }
 
 #WSsidebar {
