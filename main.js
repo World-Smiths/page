@@ -1,24 +1,4 @@
-const indexfile = [
-   {
-      "name": "Test",
-      "description": "<p>HTML world description</p>",
-      "links": {
-         "module": "https://github.com/user/repo/blob/main/module.json",
-         "world": "https://github.com/user/repo/blob/main/world.json",
-         "download": "https://github.com/user/repo/blob/main/package.zip"
-      },
-      "author": "World Smiths",
-      "authors": [
-         {
-            "name": "Test"
-         }
-      ],
-      "version": "0.3.0",
-      "system": "dnd5e",
-      "dependencies": [],
-      "size": 0
-   }
-]; // put index.json here to work offline
+const index = []; // put index.json here to work offline
 
 let gotoBtn;
 let worldsList;
@@ -28,8 +8,8 @@ const data = async () => {
    return fetch("https://raw.githubusercontent.com/World-Smiths/page/main/index.json")
       .then(response => {
          return response.json();
-      }).catch(async err => {
-         return indexfile;
+      }).catch(async () => {
+         return index;
       });
 };
 
