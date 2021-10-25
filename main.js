@@ -123,13 +123,36 @@ async function load() {
       index.forEach((package, i) => {
 
          // Get array of all unique authors
-         let authorsArray = [package.author];
-         package.authors.forEach(item => {
-            if (!authorsArray.includes(item.name))
-               authorsArray.push(item.name);
+         let authorsArray = package.authors;
+         package.author.split(/\&|,\s*| and /gi).forEach(name => {
+            if (!authorsArray.some(author => author.name === name)) authorsArray.push({ name: name });
          });
+
+         // Add links if available
+         authorsArray = authorsArray.map(author => {
+            const name = author.name;
+            console.log(author.name);
+            if (author.url) {
+               return `<a href="${author.url}" target="_blank">${name}</a>`;
+            } else if (author.email) {
+               return `<a href="mailto:${author.email}" target="_blank">${name}</a>`;
+            } else if (author.discord) {
+               return `<a href="https://discord.gg/${author.discord}" target="_blank">${name}</a>`;
+            } else if (author.reddit) {
+               return `<a href="https://www.reddit.com/user/${author.reddit.replace("/u/", "")}" target="_blank">${name}</a>`;
+            } else if (author.twitter) {
+               return `<a href="https://twitter.com/${author.twitter.replace("@", "")}" target="_blank">${name}</a>`;
+            } else if (author.patreon) {
+               return `<a href="https://www.patreon.com/${author.patreon}" target="_blank">${name}</a>`;
+            } else if (author["ko-fi"]) {
+               return `<a href="https://ko-fi.com/${author["ko-fi"]}" target="_blank">${name}</a>`;
+            } else {
+               return `<span>${name}</span>`;
+            };
+         });
+
          // Create string of authors
-         let authorStr = authorsArray.join(", ");
+         let authorStr = authorsArray.reduce((acc, curr, i, array) => acc + (i < array.length - 1 ? ", " : ", and ") + curr);
 
          // Add to list
          worldsList.add({
