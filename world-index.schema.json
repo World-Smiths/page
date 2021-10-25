@@ -87,7 +87,7 @@
           "title": "Author DiscordID",
           "description": "The author's Discord ID",
           "type": "string",
-          "pattern": "^.{3,32}#[0-9]{4}$",
+          "pattern": "^(.{3,32}#[0-9]{4}|https://discord.gg/[A-Za-z0-9]{10})$",
           "examples": [
             "discordID#0001"
           ]
@@ -135,8 +135,7 @@
     "dependency": {
       "type": "object",
       "required": [
-        "name",
-        "manifest"
+        "name"
       ],
       "additionalProperties": false,
       "description": "Any module, system, or world dependencies required by this world",
