@@ -156,12 +156,12 @@ async function load() {
       });
 
       // Focus search box
-      document.getElementById("WSsearchbox").focus();
+      document.getElementById("WSsearchBox").focus();
 
    } else {
       // Hide section if there is no index
-      const resultsbox = document.getElementById("WSresults");
-      resultsbox.style.display = "none";
+      const resultsBox = document.getElementById("WSresults");
+      resultsBox.style.display = "none";
    };
 };
 
