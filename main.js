@@ -7,6 +7,7 @@ let worldsList;
 const data = async () => {
    return fetch("https://raw.githubusercontent.com/World-Smiths/page/main/index.json")
       .then(response => {
+         if (index.length) throw new Error("Not using remote index");
          return response.json();
       }).catch(async () => {
          return index;
@@ -111,7 +112,6 @@ async function load() {
          // Add links if available
          authorsArray = authorsArray.map(author => {
             const name = author.name;
-            console.log(author.name);
             if (author.url) {
                return `<a href="${author.url}" target="_blank">${name}</a>`;
             } else if (author.email) {
@@ -152,7 +152,7 @@ async function load() {
          if (package.links.module) document.querySelectorAll("#WSinstall-module")[i].style.display = "block";
 
          // Check if this package exists in world format and show the button for installing the world
-         if (package.links.module) document.querySelectorAll("#WSinstall-world")[i].style.display = "block";
+         if (package.links.world) document.querySelectorAll("#WSinstall-world")[i].style.display = "block";
 
          // Show the download button for the ZIP
          if (package.links.download) document.querySelectorAll("#WSinstall-zip")[i].style.display = "block";
