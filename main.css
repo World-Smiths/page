@@ -207,7 +207,8 @@ button,
   cursor: copy;
 }
 
-#WSinstall-zip {
+#WSinstall-world-zip,
+#WSinstall-module-zip {
   cursor: pointer;
 }
 

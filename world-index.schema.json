@@ -7,39 +7,64 @@
   "definitions": {
     "links": {
       "type": "object",
-      "required": [
-        "download"
-      ],
       "properties": {
         "module": {
           "$id": "#/definitions/links/properties/module",
-          "title": "Module Manifest",
-          "description": "Manifest URL for the module version",
-          "type": "string",
-          "format": "uri",
-          "examples": [
-            "https://github.com/user/repo/blob/main/module.json"
-          ]
+          "type": "object",
+          "required": [
+            "manifest"
+          ],
+          "properties": {
+            "manifest": {
+              "$id": "#/definitions/links/properties/module/properties/manifest",
+              "title": "Module Manifest",
+              "description": "Manifest URL for the module",
+              "type": "string",
+              "format": "uri",
+              "examples": [
+                "https://github.com/user/repo/releases/latest/download/module.json"
+              ]
+            },
+            "download": {
+              "$id": "#/definitions/links/properties/module/properties/download",
+              "title": "Download link",
+              "description": "Download link for the module ZIP",
+              "type": "string",
+              "format": "uri",
+              "examples": [
+                "https://github.com/user/repo/releases/latest/download/module.zip"
+              ]
+            }
+          }
         },
         "world": {
           "$id": "#/definitions/links/properties/world",
-          "title": "World Manifest",
-          "description": "Manifest URL for the world version",
-          "type": "string",
-          "format": "uri",
-          "examples": [
-            "https://github.com/user/repo/blob/main/world.json"
-          ]
-        },
-        "download": {
-          "$id": "#/definitions/links/properties/download",
-          "title": "Download link",
-          "description": "Download link for the package ZIP",
-          "type": "string",
-          "format": "uri",
-          "examples": [
-            "https://github.com/user/repo/blob/main/package.zip"
-          ]
+          "type": "object",
+          "required": [
+            "manifest"
+          ],
+          "properties": {
+            "manifest": {
+              "$id": "#/definitions/links/properties/world/properties/manifest",
+              "title": "World Manifest",
+              "description": "Manifest URL for the world",
+              "type": "string",
+              "format": "uri",
+              "examples": [
+                "https://github.com/user/repo/releases/latest/download/world.json"
+              ]
+            },
+            "download": {
+              "$id": "#/definitions/links/properties/world/properties/download",
+              "title": "Download link",
+              "description": "Download link for the world ZIP",
+              "type": "string",
+              "format": "uri",
+              "examples": [
+                "https://github.com/user/repo/releases/latest/download/world.zip"
+              ]
+            }
+          }
         }
       }
     },

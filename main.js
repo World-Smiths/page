@@ -63,7 +63,8 @@ async function load() {
          "name",
          { attr: "onclick", name: "module" },
          { attr: "onclick", name: "world" },
-         { attr: "onclick", name: "zip" },
+         { attr: "onclick", name: "module-zip" },
+         { attr: "onclick", name: "world-zip" },
          "description",
          "version",
          "authors",
@@ -78,7 +79,8 @@ async function load() {
                         <nav id="WSinstall-buttons">
                            <button id="WSinstall-module" class="module">Module</button>
                            <button id="WSinstall-world" class="world">World</button>
-                           <button id="WSinstall-zip" class="zip">ZIP</button>
+                           <button id="WSinstall-module-zip" class="module-zip">Module ZIP</button>
+                           <button id="WSinstall-world-zip" class="world-zip">World ZIP</button>
                         </nav>
                      </div>
                   </header>
@@ -137,9 +139,10 @@ async function load() {
          // Add to list
          worldsList.add({
             name: package.name,
-            module: `navigator.clipboard.writeText('${package.links.module}')`,
-            world: `navigator.clipboard.writeText('${package.links.world}')`,
-            zip: `window.open('${package.links.download}')`,
+            module: `navigator.clipboard.writeText('${package.links.module?.manifest}')`,
+            world: `navigator.clipboard.writeText('${package.links.world?.manifest}')`,
+            "module-zip": `window.open('${package.links.module?.download}')`,
+            "world-zip": `window.open('${package.links.world?.download}')`,
             description: package.description,
             version: package.version,
             authors: authorStr,
@@ -149,13 +152,14 @@ async function load() {
          // Add link buttons depending on what is available for this package
 
          // Check if this package exists in module format and show the button for installing the module
-         if (package.links.module) document.querySelectorAll("#WSinstall-module")[i].style.display = "block";
+         if (package.links.module?.manifest) document.querySelectorAll("#WSinstall-module")[i].style.display = "block";
 
          // Check if this package exists in world format and show the button for installing the world
-         if (package.links.world) document.querySelectorAll("#WSinstall-world")[i].style.display = "block";
+         if (package.links.world?.manifest) document.querySelectorAll("#WSinstall-world")[i].style.display = "block";
 
          // Show the download button for the ZIP
-         if (package.links.download) document.querySelectorAll("#WSinstall-zip")[i].style.display = "block";
+         if (package.links.module?.download) document.querySelectorAll("#WSinstall-module-zip")[i].style.display = "block";
+         if (package.links.world?.download) document.querySelectorAll("#WSinstall-world-zip")[i].style.display = "block";
       });
 
       // Focus search box
