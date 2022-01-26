@@ -3,16 +3,8 @@ const index = []; // put index.json here to work offline
 let gotoBtn;
 let worldsList;
 
-// get JSON and generate page
-const data = async () => {
-   return fetch("https://raw.githubusercontent.com/World-Smiths/page/main/index.json")
-      .then(response => {
-         if (index.length) throw new Error("Not using remote index");
-         return response.json();
-      }).catch(async () => {
-         return index;
-      });
-};
+// Get JSON index
+const data = async () => index.length ? index : (await fetch("https://raw.githubusercontent.com/World-Smiths/page/main/index.json")).json();
 
 // Handle page load
 async function load() {
