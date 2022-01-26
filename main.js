@@ -31,14 +31,14 @@ async function load() {
    applyTheme();
    const toggleSwitch = document.getElementById("WScolor-toggle");
 
-   toggleSwitch.onclick = function () {
+   toggleSwitch.addEventListener("click", () => {
       let currentMode = localStorage.getItem(THEME);
       localStorage.setItem(
          THEME,
          currentMode === DARK ? LIGHT : DARK
       );
       applyTheme();
-   };
+   });
 
    function applyTheme() {
       let html = document.documentElement;
