@@ -99,12 +99,12 @@ async function load() {
 
          // Get array of all unique authors
          let authorsArray = package.authors;
-         package.author.split(/\&|,\s*| and /gi).forEach(name => {
+         package.author?.split(/\&|,\s*| and /gi).forEach(name => {
             if (!authorsArray.some(author => author.name === name)) authorsArray.push({ name: name });
          });
 
          // Add links if available
-         authorsArray = authorsArray.map(author => {
+         authorsArray = authorsArray?.map(author => {
             const name = author.name;
             if (author.url) {
                return `<a href="${author.url}" target="_blank">${name}</a>`;
@@ -126,15 +126,15 @@ async function load() {
          });
 
          // Create string of authors
-         let authorStr = authorsArray.reduce((acc, curr, i, array) => acc + (i < array.length - 1 ? ", " : ", and ") + curr);
+         let authorStr = authorsArray?.reduce((acc, curr, i, array) => acc + (i < array.length - 1 ? ", " : ", and ") + curr);
 
          // Add to list
          worldsList.add({
             name: package.name,
-            module: `navigator.clipboard.writeText('${package.links.module?.manifest}')`,
-            world: `navigator.clipboard.writeText('${package.links.world?.manifest}')`,
-            "module-zip": `window.open('${package.links.module?.download}')`,
-            "world-zip": `window.open('${package.links.world?.download}')`,
+            module: `navigator.clipboard.writeText('${package.links?.module?.manifest}')`,
+            world: `navigator.clipboard.writeText('${package.links?.world?.manifest}')`,
+            "module-zip": `window.open('${package.links?.module?.download}')`,
+            "world-zip": `window.open('${package.links?.world?.download}')`,
             description: package.description,
             version: package.version,
             authors: authorStr,
@@ -144,14 +144,14 @@ async function load() {
          // Add link buttons depending on what is available for this package
 
          // Check if this package exists in module format and show the button for installing the module
-         if (package.links.module?.manifest) document.querySelectorAll("#WSinstall-module")[i].style.display = "block";
+         if (package.links?.module?.manifest) document.querySelectorAll("#WSinstall-module")[i].style.display = "block";
 
          // Check if this package exists in world format and show the button for installing the world
-         if (package.links.world?.manifest) document.querySelectorAll("#WSinstall-world")[i].style.display = "block";
+         if (package.links?.world?.manifest) document.querySelectorAll("#WSinstall-world")[i].style.display = "block";
 
          // Show the download button for the ZIP
-         if (package.links.module?.download) document.querySelectorAll("#WSinstall-module-zip")[i].style.display = "block";
-         if (package.links.world?.download) document.querySelectorAll("#WSinstall-world-zip")[i].style.display = "block";
+         if (package.links?.module?.download) document.querySelectorAll("#WSinstall-module-zip")[i].style.display = "block";
+         if (package.links?.world?.download) document.querySelectorAll("#WSinstall-world-zip")[i].style.display = "block";
       });
 
       // Focus search box
